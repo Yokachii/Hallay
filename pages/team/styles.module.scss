@@ -1,0 +1,55 @@
+.main{
+    background-color: #424040;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: Nunito;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    .legend_container{
+        width: 19.0625rem;
+        margin: 0 auto;
+        margin-top: 0.63rem;
+        margin-bottom: 6.25rem;
+
+        h1{
+            width: 19.0625rem;
+            height: 3.125rem;
+            
+            color: #FFF;
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 400;
+        }
+    }
+
+    .card__container{
+        margin: 0 auto;
+        display: grid;
+        gap: 4.88rem;
+    }
+
+    @media (min-width: 85rem) {
+        .card__container{
+            width: 68.25rem;
+            grid-template-columns: repeat(3, 22.875rem);
+        }
+    }
+    @media (min-width: 55rem) {
+        @media (max-width:85rem){
+            .card__container{
+                width: 45.5rem;
+                grid-template-columns: repeat(2, 22.875rem);
+            }
+        }
+    }
+    @media (max-width: 55rem) {
+        .card__container{
+            width: 22.875rem;
+            grid-template-columns: repeat(1, 22.875rem);
+        }
+    }
+}
