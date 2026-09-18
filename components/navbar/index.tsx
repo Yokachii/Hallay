@@ -1,12 +1,13 @@
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
-
-import { useState,useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 
 import logo from '../../public/logo.png'
 
 export default function Index({}) {
+    const router = useRouter()
 
     const [clientWindowHeight, setClientWindowHeight] = useState(0);
     const [navScrollState, setNavScrollState] = useState("default"); // default - invisible
@@ -43,10 +44,10 @@ export default function Index({}) {
 
             <div className={styles.link}>
                 <ul>
-                    <li> <span className={styles.select}><Link href={`/`}>Home</Link></span> </li>
-                    <li> <span><Link href={`/projet`}>Projet</Link></span> </li>
-                    <li> <span><Link href={`/team`}>Team</Link></span> </li>
-                    <li> <span><Link href={`/contact`}>Contact</Link></span> </li>
+                    <li> <span className={router.pathname === '/' ? styles.select : ''}><Link href={`/`}>Home</Link></span> </li>
+                    <li> <span className={router.pathname === '/projet' ? styles.select : ''}><Link href={`/projet`}>Projet</Link></span> </li>
+                    <li> <span className={router.pathname === '/team' ? styles.select : ''}><Link href={`/team`}>Team</Link></span> </li>
+                    <li> <span className={router.pathname === '/contact' ? styles.select : ''}><Link href={`/contact`}>Contact</Link></span> </li>
                 </ul>
             </div>
         </div>

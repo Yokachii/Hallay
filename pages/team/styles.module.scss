@@ -4,11 +4,18 @@
     min-height: 100vh;
     overflow-x: hidden;
 
+    display: flex;
+    flex-direction: column;
+    justify-items:center;
+
     font-family: Nunito;
     font-size: 64px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    margin: 0 !important;
+
     .legend_container{
         width: 19.0625rem;
         margin: 0 auto;
@@ -23,33 +30,39 @@
             text-align: center;
             font-size: 2.25rem;
             font-weight: 400;
+
+            span{
+                font-size: 1.25rem;
+                color: #FCBB15;
+            }
         }
     }
 
     .card__container{
+        width: 100%;
+        max-width: 78rem;
         margin: 0 auto;
         display: grid;
-        gap: 4.88rem;
+        gap: 4rem;
+        justify-content: center;
+        justify-items: center;
     }
 
-    @media (min-width: 85rem) {
+    @media (min-width: 70rem) {
         .card__container{
-            width: 68.25rem;
-            grid-template-columns: repeat(3, 22.875rem);
+            grid-template-columns: repeat(3, minmax(0, 25vw));
         }
     }
-    @media (min-width: 55rem) {
-        @media (max-width:85rem){
+    @media (min-width: 40rem) {
+        @media (max-width:70rem){
             .card__container{
-                width: 45.5rem;
-                grid-template-columns: repeat(2, 22.875rem);
+                grid-template-columns: repeat(2, minmax(0, 35vw));
             }
         }
     }
-    @media (max-width: 55rem) {
+    @media (max-width: 40rem) {
         .card__container{
-            width: 22.875rem;
-            grid-template-columns: repeat(1, 22.875rem);
+            grid-template-columns: minmax(0, 80vw);
         }
     }
 }

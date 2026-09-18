@@ -1,6 +1,9 @@
 .card{
-    width: 18.75rem;
-    height: 21.875rem;
+    width: 25vw;
+    // height: 22vh;
+    height: auto;
+    padding-bottom: 1.25rem;
+    min-height: 17.5rem;
     flex-shrink: 0;
 
     border-radius: 1rem;
@@ -15,8 +18,8 @@
     line-height: normal;
 
     .image{
-        width: 17.1875rem;
-        height: 9.0625rem;
+        width: calc(100% - 1.5625rem);
+        aspect-ratio: 275 / 145;
         margin: 0 auto;
         margin-top: 0.81rem;
 
@@ -24,8 +27,9 @@
         background: #D9D9D9;
         .img{
             border-radius: 0.75rem;
-            width: 17.1875rem;
-            height: 9.0625rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
@@ -37,18 +41,33 @@
             justify-content: space-between;
             margin: 0 0.80rem;
 
+            .title_block{
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+            }
+
             .name{
                 font-size: 1.5rem;
             }
+            .status{
+                font-size: 0.75rem;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            .status__ended{ color: #16AB09; }
+            .status__in_progress{ color: #1877E6; }
+            .status__waiting{ color: #D70000; }
             .client{
                 text-align: center;
                 font-size: 0.875rem;
+                margin-top: 0.2rem;
             }
         }
         .desc{
             display: flex;
             margin: 0 auto;
-            width: 16.6875rem;
+            width: calc(100% - 2.0625rem);
             height: 3.75rem;
             flex-shrink: 0;
             overflow: hidden;
@@ -58,13 +77,27 @@
             flex-direction: column;
 
             span{
-                width: 16.8125rem;
+                width: calc(100% - 1.6rem);
                 height: 1.0625rem;
                 margin: 0 0.80rem;
 
                 font-size: 0.875rem;
             }
         }
+    }
+}
+
+@media (min-width: 40rem) {
+    @media (max-width:70rem){
+        .card{
+            width: 35vw;
+        }
+    }
+}
+
+@media (max-width: 40rem) {
+    .card{
+        width: 80vw;
     }
 }
 

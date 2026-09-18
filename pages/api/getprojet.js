@@ -1,22 +1,13 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import sequelize from '../../module/sequelize'
-import { Sequelize } from 'sequelize'
-import { sql } from '@sequelize/core';
 
 export default async function handler(_req, res) {
     try {
-
-        let sql = `SELECT * FROM projet`
-
-        await sequelize.query(sql, {type:sequelize.QueryTypes.SELECT}).then(x=>{
-            res.end(JSON.stringify(x))
-        })
-
+        await sequelize.initializeDatabase()
+        const projects = await sequelize.models.projet.findAll({ raw: true })
+        res.status(200).json(projects)
     } catch (error) {
-        // Handle any errors that occur during the request
-        res.end(`err : ${error}`)
+        res.status(500).json({ error: error.message })
     }
-  
 }
 
 // export default async function handler(req, res) {

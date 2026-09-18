@@ -1,10 +1,31 @@
-import { Sequelize } from 'sequelize';
-const db = {};
+const { Sequelize } = require('sequelize');
+const fs = require('fs');
+const path = require('path');
 
-const sequelize = new Sequelize('yokachi04_tempp', 'yokachi04', 'Elliot2862', {
-    dialect: 'mysql',
-    host: 'mysql-yokachi04.alwaysdata.net',
-    dialectModule: require('mysql2'),
+const databaseDirectory = path.join(process.cwd(), 'data');
+fs.mkdirSync(databaseDirectory, { recursive: true });
+
+const sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: process.env.SQLITE_STORAGE || path.join(databaseDirectory, 'hallay.sqlite'),
+    logging: false,
 });
 
 module.exports = sequelize;
+
+require('./model/projet');
+require('./model/team');
+const { seedDatabase } = require('./seed');
+
+let initialization;
+
+sequelize.initializeDatabase = async function initializeDatabase() {
+    if (!initialization) {
+        initialization = (async () => {
+            await sequelize.sync();
+            await seedDatabase(sequelize);
+        })();
+    }
+
+    return initialization;
+};

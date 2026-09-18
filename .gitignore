@@ -87,6 +87,9 @@ web_modules/
 .next
 out
 
+# Local SQLite database
+data/*.sqlite
+
 # Nuxt.js build / generate output
 .nuxt
 dist

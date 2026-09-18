@@ -34,8 +34,8 @@ export default function Index({name,picture,badge}) {
             <div className={styles.info}>
                 <span className={styles.name}>{name}</span>
                 <div className={styles.badge__container}>
-                    {badge.map((name,i) =>
-                        <Badge badgeName={name} key={i}></Badge>
+                    {(Array.isArray(badge) ? badge : []).map((name,i) =>
+                        <Badge badgeName={name} key={`${name}-${i}`}></Badge>
                     )}
                 </div>
             </div>

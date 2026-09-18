@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, UUID, UUIDV1, json } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../sequelize');
 
 const Team = sequelize.define('team', {
@@ -26,10 +26,5 @@ const Team = sequelize.define('team', {
     name: 'team',
     modelNamel: 'team'
 });
-
-(async () => {
-    await Team.sync({});
-    console.log('Les table ont été chargée !');
-})();
 
 module.exports = Team;
