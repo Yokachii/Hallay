@@ -1,68 +1,53 @@
-.main{
-    background-color: #424040;
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
+.main {
+  background-color: #424040;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  box-sizing: border-box;
 
-    display: flex;
-    flex-direction: column;
-    justify-items:center;
+  display: flex;
+  flex-direction: column;
 
-    font-family: Nunito;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  font-family: Nunito, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 
-    margin: 0 !important;
+  margin: 0 !important;
+  padding: 0 clamp(1rem, 4vw, 2rem) 4rem;
 
-    .legend_container{
-        width: 19.0625rem;
-        margin: 0 auto;
-        margin-top: 0.63rem;
-        margin-bottom: 6.25rem;
+  .legend_container {
+    width: 100%;
+    max-width: 30rem;
+    margin: 0.63rem auto clamp(2.5rem, 8vw, 6.25rem);
 
-        h1{
-            width: 19.0625rem;
-            height: 3.125rem;
-            
-            color: #FFF;
-            text-align: center;
-            font-size: 2.25rem;
-            font-weight: 400;
+    h1 {
+      width: auto;
+      height: auto;
+      margin: 0;
 
-            span{
-                font-size: 1.25rem;
-                color: #FCBB15;
-            }
-        }
+      color: #fff;
+      text-align: center;
+      font-size: clamp(1.6rem, 6vw, 2.25rem);
+      font-weight: 400;
+
+      span {
+        font-size: clamp(1rem, 3.5vw, 1.25rem);
+        color: #fcbb15;
+      }
     }
+  }
 
-    .card__container{
-        width: 100%;
-        max-width: 78rem;
-        margin: 0 auto;
-        display: grid;
-        gap: 4rem;
-        justify-content: center;
-        justify-items: center;
-    }
+  .card__container {
+    width: 100%;
+    max-width: 78rem;
+    margin: 0 auto;
 
-    @media (min-width: 70rem) {
-        .card__container{
-            grid-template-columns: repeat(3, minmax(0, 25vw));
-        }
-    }
-    @media (min-width: 40rem) {
-        @media (max-width:70rem){
-            .card__container{
-                grid-template-columns: repeat(2, minmax(0, 35vw));
-            }
-        }
-    }
-    @media (max-width: 40rem) {
-        .card__container{
-            grid-template-columns: minmax(0, 80vw);
-        }
-    }
+    display: grid;
+    /* as many columns as fit (1 on phones, 2 on tablets, 3 on desktop) */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+    justify-items: center;
+  }
 }

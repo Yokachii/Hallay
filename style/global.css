@@ -12,6 +12,7 @@
   }
   
   html {
+    background-color: #424040;
     -webkit-text-size-adjust: none; /*─ Debug font size on iphone when landscape orientation ─*/
     -webkit-font-smoothing: subpixel-antialiased; /*─ Debug safari font weight when fixed element on the page ─*/
     -webkit-font-smoothing: antialiased; /*─ idem : Debug safari font weight when fixed element on the page ─*/
@@ -27,6 +28,9 @@
     border: 0;
     font: inherit;
     font-size: 100%;
+  }
+  body {
+    background-color: #424040;
   }
   ul {
     list-style: none;

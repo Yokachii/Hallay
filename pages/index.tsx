@@ -174,7 +174,7 @@ export default function Index() {
         </div>
 
 
-        <div style={{height:'150vh'}}></div>
+        <div className={styles.process__spacer}></div>
 
       </div>
 
